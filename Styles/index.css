@@ -1,0 +1,52 @@
+body {
+  background-image: url("../images/background.jpg");
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainFlexBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 100px;
+  row-gap: 30px;
+  height: 500px;
+  width: 500px;
+}
+
+.title {
+  font-size: 50px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.homeButtons {
+  height: 50px;
+  width: 120px;
+  border-radius: 200px;
+  background-color: rgb(220, 180, 0);
+  border: none;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.1s;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.homeButtons:hover {
+  background-color: rgb(240, 200, 0);
+  cursor: pointer;
+}
+
+.homeButtons:active {
+  background-color: rgb(220, 180, 0);
+  cursor: pointer;
+}
