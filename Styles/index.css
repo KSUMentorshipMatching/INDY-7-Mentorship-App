@@ -23,21 +23,28 @@ body {
 
 .mainFlexBox {
   display: flex;
-  border-radius: 25px;
   background-color: white;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  column-gap: 100px;
   height: 700px;
   width: 1000px;
   margin-top: 150px;
-  padding-right: 200px;
+  padding-right: 250px;
+}
+
+.imageDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width:500px;
+  background-color: lightgray;
 }
 
 .happy {
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 300px;
 }
 
 .login-flex {
@@ -48,6 +55,7 @@ body {
   align-items: center;
   column-gap: 30px;
   row-gap: 30px;
+  margin-left: 280px;
 }
 
 .title {
