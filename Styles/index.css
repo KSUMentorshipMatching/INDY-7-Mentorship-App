@@ -119,3 +119,7 @@ body {
   background-color: rgb(220, 180, 0);
   cursor: pointer;
 }
+
+a {
+  text-decoration: none;
+}
