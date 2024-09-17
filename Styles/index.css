@@ -1,6 +1,18 @@
+html {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 body {
-  background-image: url("../images/background.jpg");
-  font-family: Arial, Helvetica, sans-serif;
+  background-image: url(../images/background.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 .grid {
@@ -11,42 +23,90 @@ body {
 
 .mainFlexBox {
   display: flex;
+  border-radius: 25px;
+  background-color: white;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 100px;
+  height: 700px;
+  width: 1000px;
+  margin-top: 150px;
+  padding-right: 200px;
+}
+
+.happy {
+  width: 100%;
+  height: 100%;
+}
+
+.login-flex {
+  display: flex;
+  height: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 100px;
+  column-gap: 30px;
   row-gap: 30px;
-  height: 500px;
-  width: 500px;
 }
 
 .title {
-  font-size: 50px;
-  color: white;
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: 1px;
+  color: black;
   font-weight: bold;
-  text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-.homeButtons {
+.input {
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  color: #666;
+  background: #e6e6e6;
+  display: block;
+  width: 290px;
+  height: 45px;
+  padding-left: 30px;
+  line-height: 1.5;
+}
+
+.loginButton {
+  width: 100%;
   height: 50px;
-  width: 120px;
-  border-radius: 200px;
+  border-radius: 250px;
   background-color: rgb(220, 180, 0);
   border: none;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
   transition: background-color 0.1s;
   color: white;
   font-weight: bold;
   font-size: 15px;
+  margin-top: 10px;
 }
 
-.homeButtons:hover {
+.forgot-text {
+  color: #666;
+  margin-top: -12px;
+  cursor: pointer;
+}
+
+.create-text {
+  color: #666;
+  cursor: pointer;
+  margin-top: -35px;
+}
+
+.password {
+  margin-top: -12px;
+}
+
+.loginButton:hover {
   background-color: rgb(240, 200, 0);
   cursor: pointer;
 }
 
-.homeButtons:active {
+.loginButton {
   background-color: rgb(220, 180, 0);
   cursor: pointer;
 }
