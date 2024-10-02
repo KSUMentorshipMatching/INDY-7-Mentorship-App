@@ -1,4 +1,6 @@
 import mysql.connector
+import hashlib
+
 from flask import Flask,request,render_template,url_for,redirect
 
 
@@ -21,18 +23,34 @@ def index():
     return render_template("index.html")
 
 #Form handler that takes form data and submits it to the mysql database
-@app.route("/my_form", methods=["POST"])
+@app.route("/sign_up", methods=["POST"])
 def bar():
     email = request.form["email"]
     password = request.form["password"]
+    salt = "69ggez"
+    dppw= password+salt
+    hashed = hashlib.md5(dppw.encode())
     sql = "INSERT INTO Mentor (email) VALUES (%s)"
     val = (email,)
     mycursor.execute(sql, val)
     mydb.commit()
 
     #redirects the user back to index (TODO: make it redirect to a different page. )
-    return redirect(url_for('index'))
-    
+    #return redirect(url_for('index'))
+    #return (hashed.hexdigest())
+
+#login test, cant test until we get a front end interface for it
+@app.route("/log_in", methods=["GET"])
+def bar():
+    email = request.form["email"]
+    password = request.form["password"]
+    salt = "69ggez"
+    dppw= password+salt
+    hashed = hashlib.md5(dppw.encode())    
+    sql = "SELECT email,password FROM MENTOR WHERE EMAIL = (email) AND PASSWORD = (hashed)"
+    val = (email,hashed)
+    mycursor.execute(sql, val)
+    mydb.commit
 
 if __name__ == "__main__":
     app.run(debug=True)
