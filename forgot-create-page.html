@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Forgot Password? / Create Account</title>
+    <link rel="stylesheet" href="static/Styles/forgot-create-page.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      src = "Script/functions.js";
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="forgot-container">
+        <p class="main-text">Forgot Password</p>
+        <p class="information-text">
+          Please enter the email address or username you'd like your password
+          reset information sent to
+        </p>
+        <form>
+          <input class="input" placeholder="Email" />
+          <input class="input" placeholder="Username" />
+          <button class="request-button">Request Reset Link</button>
+        </form>
+        <a class="back-to-login-text" href="index.html">Back To Login</a>
+      </div>
+
+      <div class="signup-container">
+        <p class="main-text">Sign Up</p>
+        <form>
+          <input class="input-email" id = "signup-email" placeholder="Email" />
+          <input class="input" placeholder="Confirm Email" />
+          <input class="input" placeholder="Password" />
+          <input class="input" placeholder="Confirm Password" />
+          <button class="request-button">Sign Up</button>
+        </form>
+        <a class="back-to-login-text" href="index.html">Back To Login</a>
+      </div>
+    </div>
+  </body>
+</html>
