@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
   <head>
     <title>Launch Page</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='/Styles/index.css')}}"
-    />
+    <link rel="stylesheet" href="static/Styles/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <script type="module" src="../static/Script/functions.js"></script>
+    <script src="../static/Script/functions.js"></script>
   </head>
 
   <body>
@@ -20,36 +17,18 @@
       <section class="grid">
         <div class="mainFlexBox">
           <div class="imageDiv">
-            <img
-              class="happy"
-              src="static/images/mentoring.jpg"
-              alt="placeholder"
-            />
+            <img class="happy" src="../static/Images/mentoring.jpg" alt="placeholder" />
           </div>
+          
 
           <div class="login-flex">
-            <div class="title">Mentor Match</div>
-            <form action="/my_form" method="POST">
-              <input
-                type="text"
-                id="email"
-                name="email"
-                class="input"
-                placeholder="email"
-              />
-              <input
-                type="text"
-                id="password"
-                name="password"
-                class="input"
-                placeholder="password"
-              />
-              <input type="submit" value="login" class="loginButton" />
+            <div class="title">Member Login</div>
+            <form action "/my_form" method="POST">
+              <input type="text" id="email" name="email" class="input" placeholder="Email">
+              <input type="text" id="password" name="password" class="input" placeholder="Password">
+              <input type="submit" value="login" class="loginButton">
             </form>
-            <a class="forgot-text" href="index.html"
-              >Forgot Username / Password?</a
-            >
-            <a class="create-text" href="index.html">Create your Account</a>
+              <a class = "forgot-text" href="/forgot-create-page">Forgot Username or Password? / Create Account</a>
           </div>
         </div>
       </section>
