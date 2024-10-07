@@ -37,3 +37,17 @@ rightSwipeBtn.addEventListener('click', () => {
   currentIndex = (currentIndex + 1) % profiles.length;
   loadProfile(currentIndex);  // Swipe right, load next profile
 });
+
+function validatePassword() {
+  var password = document.getElementById("password");
+  var confirm_password = document.getElementById("confirm_password");
+
+  if (password.value !== confirm_password.value) {
+    //alert("Passwords don't match!");  // Visual feedback
+    confirm_password.setCustomValidity("Passwords Don't Match");
+    return false;  // Prevent form submission
+  } else {
+    confirm_password.setCustomValidity('');  // Reset error message
+    return true;  // Allow form submission
+  }
+}
