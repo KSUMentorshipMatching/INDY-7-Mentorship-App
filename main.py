@@ -2,15 +2,15 @@ import mysql.connector
 import hashlib
 from flask import Flask, request, render_template, redirect, url_for
 
-# Connect to MySQL database
-# mydb = mysql.connector.connect(
-#     host="indy7.cx8sgaa8o3lw.us-east-1.rds.amazonaws.com",
-#     user="admin",
-#     password="Cdaywinners2024",
-#     database="INDY7"
-# )
+#Connect to MySQL database
+mydb = mysql.connector.connect(
+     host="localhost",
+     user="root",
+     password="password",
+     database="indy7"
+ )
 
-# mycursor = mydb.cursor()
+mycursor = mydb.cursor()
 
 app = Flask(__name__)
 
@@ -30,11 +30,32 @@ def sign_up():
     hashed_password = hashlib.md5((password + salt).encode()).hexdigest()
 
     # Insert user into database
-    #sql = "INSERT INTO Mentor (email, password) VALUES (%s, %s)"
-    #val = (email, hashed_password)
-    #mycursor.execute(sql, val)
-    #mydb.commit()
+    sql = "INSERT INTO Mentor (email, password) VALUES (%s, %s)"
+    val = (email, hashed_password)
+    mycursor.execute(sql, val)
+    mydb.commit()
 
+    mycursor.close
+
+    return redirect(url_for('index'))
+
+@app.route("/log_in", methods=["POST"])
+def log_in():
+    email = request.form["email"]
+    password = request.form["password"]
+
+    # Add a salt and hash the password
+    salt = "69ggez"
+    hashed_password = hashlib.md5((password + salt).encode()).hexdigest()
+
+    sql = "SELECT email,password FROM Mentor WHERE email={%s} AND password={%s}"
+    mycursor.execute(sql,(email,hashed_password))
+
+    result = mycursor.fetchall()
+    for r in result:
+        print (r)
+
+    mycursor.close
     return redirect(url_for('index'))
 
 # Route for forgot password page
