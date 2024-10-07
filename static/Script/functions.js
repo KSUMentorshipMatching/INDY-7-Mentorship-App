@@ -20,8 +20,8 @@ function loadProfile(index) {
   card.innerHTML = `
     <img src="${profile.img}" alt="${profile.name}">
     <div class="card-content">
-      <h2>${profile.name}</h2>
-      <p>${profile.bio}</p>
+      <h2 class = "name">${profile.name}</h2>
+      <p = class = "bio">${profile.bio}</p>
     </div>
   `;
   swipeContainer.innerHTML = '';
