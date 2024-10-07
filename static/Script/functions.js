@@ -38,9 +38,58 @@ rightSwipeBtn.addEventListener('click', () => {
   loadProfile(currentIndex);  // Swipe right, load next profile
 });
 
-function validatePassword() {
+function validateEmail() {
+  var email = document.getElementById("email");
+  var confirm_email = document.getElementById("confirm_email");
+
+  if (email.value !== email_password.value) {
+    alert("Emails don't match!");  // Visual feedback
+    confirm_email.setCustomValidity("Email Don't Match");
+    return false;  // Prevent form submission
+  } else {
+    confirm_email.setCustomValidity('');  // Reset error message
+    return true;  // Allow form submission
+  }
+}
+
+function validatePasswordReq(){
   var password = document.getElementById("password");
   var confirm_password = document.getElementById("confirm_password");
+
+  // Regular expressions for validation
+  var uppercaseRegex = /[A-Z]/; // At least one uppercase letter
+  var specialCharRegex = /[\W]/; // At least one special character (non-alphanumeric)
+
+  // Check if the password is at least 8 characters long
+  if (password.value.length < 8) {
+    password.setCustomValidity("Password must be at least 8 characters long.");
+    return false; // Prevent form submission and allow another attempt
+  }
+
+  // Check for at least one uppercase letter
+  if (!uppercaseRegex.test(password.value)) {
+    password.setCustomValidity(
+      "Password must contain at least one uppercase letter."
+    );
+    return false; // Prevent form submission and allow another attempt
+  }
+
+  // Check for at least one special character
+  if (!specialCharRegex.test(password.value)) {
+    password.setCustomValidity(
+      "Password must contain at least one special character."
+    );
+    return false; // Prevent form submission and allow another attempt
+  }
+
+  if (password.value.length > 8 && uppercaseRegex.test(password.value) && specialCharRegex.test(password.value)){
+    password.setCustomValidity("")
+    return true;
+  }
+}
+
+function validatePassword() {
+  
 
   if (password.value !== confirm_password.value) {
     //alert("Passwords don't match!");  // Visual feedback
@@ -51,3 +100,14 @@ function validatePassword() {
     return true;  // Allow form submission
   }
 }
+
+// Add input event listeners to reset validation when user types
+document.getElementById("password").addEventListener('input', function() {
+  document.getElementById("confirm_password").setCustomValidity('');
+});
+
+document.getElementById("confirm_password").addEventListener('input', function() {
+  confirm_password.setCustomValidity('');  // Reset custom validity on typing
+})
+
+
