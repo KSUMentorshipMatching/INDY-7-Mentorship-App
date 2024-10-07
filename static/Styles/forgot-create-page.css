@@ -12,6 +12,11 @@ html {
   width: 100%;
 }
 
+.page-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .forgot-container {
   display: flex;
   flex-direction: column;
