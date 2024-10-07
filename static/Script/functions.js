@@ -38,7 +38,21 @@ rightSwipeBtn.addEventListener('click', () => {
   loadProfile(currentIndex);  // Swipe right, load next profile
 });
 
-function validatePassword() {
+function validateEmail() {
+  var email = document.getElementById("email");
+  var confirm_email = document.getElementById("confirm_email");
+
+  if (email.value !== email_password.value) {
+    alert("Emails don't match!");  // Visual feedback
+    confirm_email.setCustomValidity("Email Don't Match");
+    return false;  // Prevent form submission
+  } else {
+    confirm_email.setCustomValidity('');  // Reset error message
+    return true;  // Allow form submission
+  }
+}
+
+function validatePasswordReq(){
   var password = document.getElementById("password");
   var confirm_password = document.getElementById("confirm_password");
 
