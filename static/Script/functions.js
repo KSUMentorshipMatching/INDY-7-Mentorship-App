@@ -42,12 +42,36 @@ function validatePassword() {
   var password = document.getElementById("password");
   var confirm_password = document.getElementById("confirm_password");
 
+  // Regular expressions for validation
+  var uppercaseRegex = /[A-Z]/;  // At least one uppercase letter
+  var specialCharRegex = /[\W_]/; // At least one special character (non-alphanumeric)
+
+  // Check if passwords match
   if (password.value !== confirm_password.value) {
-    //alert("Passwords don't match!");  // Visual feedback
     confirm_password.setCustomValidity("Passwords Don't Match");
     return false;  // Prevent form submission
-  } else {
-    confirm_password.setCustomValidity('');  // Reset error message
-    return true;  // Allow form submission
   }
+
+  // Check if the password is at least 8 characters long
+  if (password.value.length < 8) {
+    password.setCustomValidity("Password must be at least 8 characters long.");
+    return false;  // Prevent form submission
+  }
+  
+  // Check for at least one uppercase letter
+  if (!uppercaseRegex.test(password.value)) {
+    password.setCustomValidity("Password must contain at least one uppercase letter.");
+    return false;  // Prevent form submission
+  }
+
+  // Check for at least one special character
+  if (!specialCharRegex.test(password.value)) {
+    password.setCustomValidity("Password must contain at least one special character.");
+    return false;  // Prevent form submission
+  }
+
+  // Reset any error messages if validations pass
+  confirm_password.setCustomValidity('');
+  password.setCustomValidity('');
+  return true;  // Allow form submission
 }
