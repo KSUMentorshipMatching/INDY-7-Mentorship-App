@@ -1,7 +1,7 @@
 html {
   background: linear-gradient(to bottom, #f0f0f0, #bbb5b5);
   font-family: "Roboto", sans-serif;
-  padding: 50px 0px 50px 0px;
+  padding: 30px 0px 30px 0px;
   height: 100vh;
 }
 
@@ -72,7 +72,6 @@ html {
 }
 
 .input-email {
-  margin-top: 16.5px;
   border-radius: 5px;
   border: none;
   outline: none;
@@ -128,3 +127,30 @@ form {
   justify-content: center;
   margin: 0;
 }
+
+.signup-text {
+  margin-bottom: 40px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 200px;
+}
+
+.password-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  width: 372px;
+}
+
+p {
+  margin: 3px 0px 0px 0px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+}
+

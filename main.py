@@ -7,14 +7,14 @@ from flask_session import Session
 
 user_id= None
 
-mydb = mysql.connector.connect(
-      host="localhost",
-      user="root",
-      password="password",
-      database="indy7"
- )
+# mydb = mysql.connector.connect(
+#       host="localhost",
+#       user="root",
+#       password="password",
+#       database="indy7"
+#  )
 
-mycursor = mydb.cursor()
+# mycursor = mydb.cursor()
 
 app = Flask(__name__)
 app.secret_key='Cdaywinners2024'
