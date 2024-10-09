@@ -7,6 +7,15 @@ html {
   overflow-x: hidden;
 }
 
+p {
+  margin: 0px;
+}
+
+.invalid-text{
+  color: red;
+  margin-top: 10px;
+}
+
 body {
   background-image: url(../images/background.jpg);
   background-size: cover;

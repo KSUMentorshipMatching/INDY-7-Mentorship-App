@@ -13,6 +13,9 @@
   </head>
 
   <body>
+
+
+
     <main>
       <section class="grid">
         <div class="mainFlexBox">
@@ -26,6 +29,13 @@
             <form action="/log_in" method="POST">
               <input type="email" id="email" name="email" class="input" placeholder="Email">
               <input type="password" id="password" name="password" class="input" placeholder="Password">
+              {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                  {% for message in messages %}
+                    <p class="invalid-text">{{ message }}</p>
+                  {% endfor %}
+              {% endif %}
+            {% endwith %}
               <input type="submit" value="login" class="loginButton">
             </form>
               <a class = "forgot-text" href="/forgot-create-page">Forgot Username or Password? / Create Account</a>

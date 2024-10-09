@@ -1,6 +1,6 @@
 import mysql.connector
 import hashlib
-from flask import Flask, request, render_template, redirect, url_for, session
+from flask import Flask, request, render_template, redirect, url_for, session, flash
 from flask_session import Session
 
 # Connect to MySQL database
@@ -17,6 +17,7 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 
 app = Flask(__name__)
+app.secret_key='Cdaywinners2024'
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
@@ -68,9 +69,11 @@ def log_in():
             user_id, user_email = result
             session["email"] = email
             return redirect(url_for("dashboard"))  # Redirect to dashboard
-        else:
-            return redirect(url_for("login_page"))  # Redirect back to login if login fails
+        elif not result:
+            flash('Invalid Login Credentials. Try Again.')  # Redirect back to login if login fails
+            return (redirect(url_for("index")))
     return render_template("index.html")
+    
 
 # Route for the dashboard page (only accessible after login)
 @app.route("/dashboard")
