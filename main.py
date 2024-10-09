@@ -4,6 +4,9 @@ from flask import Flask, request, render_template, redirect, url_for, session
 from flask_session import Session
 
 # Connect to MySQL database
+
+user_id= None
+
 mydb = mysql.connector.connect(
      host="localhost",
      user="root",
@@ -62,6 +65,7 @@ def log_in():
 
         if result:
             # Store the email in the session
+            user_id, user_email = result
             session["email"] = email
             return redirect(url_for("dashboard"))  # Redirect to dashboard
         else:
