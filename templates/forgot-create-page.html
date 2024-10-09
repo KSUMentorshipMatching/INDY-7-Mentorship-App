@@ -31,13 +31,69 @@
 
       <!-- Sign Up Section -->
       <div class="signup-container">
-        <p class="main-text">Sign Up</p>
-        <form action="/sign_up" method="POST" oninput="validatePasswordReq();validateEmail();">
-          <input type="email" class="input-email" id="email" name="email" placeholder="Email" />
-          <input type="email" class="input" id="confirm_email" name="confirm_email" placeholder="Confirm Email" />
-          <input type="password" class="input" id="password" name="password" placeholder="Password" />
-          <input type="password" class="input" id="confirm_password" placeholder="Confirm Password" />
-          <button type="submit" id="sign_up" value="sign_up" class="request-button">Sign Up</button>
+        <p class="main-text signup-text">Sign Up</p>
+        <form
+          action="/sign_up"
+          method="POST"
+          oninput="validatePasswordReq();validateEmail();"
+        >
+          <input class="input input-name" placeholder="First Name" />
+          <input class="input input-name" placeholder="Last Name" />
+          <input
+            type="email"
+            class="input-email"
+            id="email"
+            name="email"
+            placeholder="Email"
+          />
+          <input
+            type="email"
+            class="input"
+            id="confirm_email"
+            name="confirm_email"
+            placeholder="Confirm Email"
+          />
+          <input
+            type="password"
+            class="input"
+            id="password"
+            name="password"
+            placeholder="Password"
+          />
+
+          <div class="password-details">
+            <p>Password must contain:</p>
+            <ul>
+              <li>One upper case letter</li>
+              <li>One special character</li>
+              <li>Minimum of 8 characters</li>
+            </ul>
+          </div>
+
+          <input
+            type="password"
+            class="input"
+            id="confirm_password"
+            placeholder="Confirm Password"
+          />
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="role" value="mentee" required />
+              Mentee
+            </label>
+            <label>
+              <input type="radio" name="role" value="mentor" />
+              Mentor
+            </label>
+          </div>
+          <button
+            type="submit"
+            id="sign_up"
+            value="sign_up"
+            class="request-button"
+          >
+            Sign Up
+          </button>
         </form>
         <a class="back-to-login-text" href="/login_page">Back To Login</a>
       </div>
