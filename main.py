@@ -7,14 +7,14 @@ from flask_session import Session
 
 user_id= None
 
-# mydb = mysql.connector.connect(
-#      host="localhost",
-#      user="root",
-#      password="password",
-#      database="indy7"
-# )
+mydb = mysql.connector.connect(
+      host="localhost",
+      user="root",
+      password="password",
+      database="indy7"
+ )
 
-# mycursor = mydb.cursor()
+mycursor = mydb.cursor()
 
 app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
@@ -58,7 +58,7 @@ def log_in():
         hashed_password = hashlib.md5((password + salt).encode()).hexdigest()
 
         # Use a parameterized query to avoid SQL injection
-        sql = "SELECT email FROM Mentor WHERE email=%s AND password=%s"
+        sql = "SELECT id, email FROM Mentor WHERE email=%s AND password=%s"
         mycursor.execute(sql, (email, hashed_password))
 
         result = mycursor.fetchone()
