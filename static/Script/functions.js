@@ -42,8 +42,7 @@ function validateEmail() {
   var email = document.getElementById("email");
   var confirm_email = document.getElementById("confirm_email");
 
-  if (email.value !== email_password.value) {
-    alert("Emails don't match!");  // Visual feedback
+  if (email.value !== confirm_email.value) {
     confirm_email.setCustomValidity("Email Don't Match");
     return false;  // Prevent form submission
   } else {
