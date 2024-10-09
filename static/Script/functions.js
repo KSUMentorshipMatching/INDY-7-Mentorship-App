@@ -43,7 +43,7 @@ function validateEmail() {
   var confirm_email = document.getElementById("confirm_email");
 
   if (email.value !== confirm_email.value) {
-    confirm_email.setCustomValidity("Email Don't Match");
+    confirm_email.setCustomValidity("Emails Don't Match");
     return false;  // Prevent form submission
   } else {
     confirm_email.setCustomValidity('');  // Reset error message
