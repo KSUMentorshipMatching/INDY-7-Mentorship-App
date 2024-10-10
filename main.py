@@ -7,14 +7,14 @@ from flask_session import Session
 
 user_id= None
 
-# mydb = mysql.connector.connect(
-#       host="localhost",
-#       user="root",
-#       password="password",
-#       database="indy7"
-#  )
+mydb = mysql.connector.connect(
+       host="localhost",
+       user="root",
+       password="password",
+       database="indy7"
+  )
 
-# mycursor = mydb.cursor()
+mycursor = mydb.cursor()
 
 app = Flask(__name__)
 app.secret_key='Cdaywinners2024'
@@ -30,20 +30,28 @@ def index():
 # Route for sign-up form handling
 @app.route("/sign_up", methods=["POST"])
 def sign_up():
+    selected_option = request.form.get('role')
     email = request.form["email"]
     password = request.form["password"]
+    firstName = request.form["first-name"]
+    lastName = request.form["last-name"]
     
     # Add a salt and hash the password
     salt = "69ggez"
     hashed_password = hashlib.md5((password + salt).encode()).hexdigest()
 
-    # Insert user into database
-    sql = "INSERT INTO Mentor (email, password) VALUES (%s, %s)"
-    val = (email, hashed_password)
-    mycursor.execute(sql, val)
-    mydb.commit()
-
-    mycursor.close()
+    if selected_option == 'mentee':
+        sql = "INSERT INTO Mentee (firstName, lastName, email, password) VALUES (%s, %s, %s, %s)"
+        val = (firstName, lastName, email, hashed_password )
+        mycursor.execute(sql, val)
+        mydb.commit()
+        mycursor.close()   
+    elif selected_option == 'mentor':
+        sql = "INSERT INTO Mentor (firstName, lastName, email, password) VALUES (%s, %s, %s, %s)"
+        val = (firstName, lastName, email, hashed_password )
+        mycursor.execute(sql, val)
+        mydb.commit()
+        mycursor.close()
 
     return redirect(url_for('index'))
 
