@@ -8,9 +8,9 @@ from flask_session import Session
 user_id= None
 
 mydb = mysql.connector.connect(
-       host="",
-       user="",
-       password="",
+       host="placeholder",
+       user="palceholder",
+       password="passwordholder",
        port=14493,
        database="indy7"
 
