@@ -11,7 +11,7 @@ mydb = mysql.connector.connect(
        host="placeholder",
        user="palceholder",
        password="passwordholder",
-       port=14493,
+       port=1,
        database="indy7"
 
   )
