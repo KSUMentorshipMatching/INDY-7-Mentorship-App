@@ -8,10 +8,12 @@ from flask_session import Session
 user_id= None
 
 mydb = mysql.connector.connect(
-       host="localhost",
-       user="root",
-       password="password",
+       host="indy7-khangnnguyen02-102c.j.aivencloud.com",
+       user="avnadmin",
+       password="AVNS_oAQXa6fZzvcxpuK_mR7",
+       port=14493,
        database="indy7"
+
   )
 
 mycursor = mydb.cursor()
@@ -41,13 +43,13 @@ def sign_up():
     hashed_password = hashlib.md5((password + salt).encode()).hexdigest()
 
     if selected_option == 'mentee':
-        sql = "INSERT INTO Mentee (firstName, lastName, email, password) VALUES (%s, %s, %s, %s)"
+        sql = "INSERT INTO mentee (firstName, lastName, email, password) VALUES (%s, %s, %s, %s)"
         val = (firstName, lastName, email, hashed_password )
         mycursor.execute(sql, val)
         mydb.commit()
         mycursor.close()   
     elif selected_option == 'mentor':
-        sql = "INSERT INTO Mentor (firstName, lastName, email, password) VALUES (%s, %s, %s, %s)"
+        sql = "INSERT INTO mentor (firstName, lastName, email, password) VALUES (%s, %s, %s, %s)"
         val = (firstName, lastName, email, hashed_password )
         mycursor.execute(sql, val)
         mydb.commit()
@@ -67,7 +69,7 @@ def log_in():
         hashed_password = hashlib.md5((password + salt).encode()).hexdigest()
 
         # Use a parameterized query to avoid SQL injection
-        sql = "SELECT id, email FROM Mentor WHERE email=%s AND password=%s"
+        sql = "SELECT id, email FROM mentor WHERE email=%s AND password=%s"
         mycursor.execute(sql, (email, hashed_password))
 
         result = mycursor.fetchone()
