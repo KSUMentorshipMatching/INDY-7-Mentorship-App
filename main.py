@@ -4,22 +4,16 @@ from flask import Flask, request, render_template, redirect, url_for, session, f
 from flask_session import Session
 
 # Connect to MySQL database
-
-user_id= None
-
 mydb = mysql.connector.connect(
-       host="placeholder",
-       user="palceholder",
-       password="passwordholder",
-       port=1,
-       database="indy7"
-
-  )
-
-mycursor = mydb.cursor()
+    host="KSUMentorshipApp.mysql.pythonanywhere-services.com",
+    user="KSUMentorshipApp",
+    password="Cdaywinners2024",
+    port=3306,
+    database="KSUMentorshipApp$MentorshipMatching"
+)
 
 app = Flask(__name__)
-app.secret_key='Cdaywinners2024'
+app.secret_key = 'Cdaywinners2024'
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
@@ -37,29 +31,34 @@ def sign_up():
     password = request.form["password"]
     firstName = request.form["first-name"]
     lastName = request.form["last-name"]
-    
+
+    if not mydb.is_connected():
+        mydb.reconnect()
+
     # Add a salt and hash the password
     salt = "69ggez"
     hashed_password = hashlib.md5((password + salt).encode()).hexdigest()
 
-    if selected_option == 'mentee':
-        sql = "INSERT INTO mentee (firstName, lastName, email, password) VALUES (%s, %s, %s, %s)"
-        val = (firstName, lastName, email, hashed_password )
+    # Use context manager to handle cursor automatically
+    with mydb.cursor() as mycursor:
+        if selected_option == 'mentee':
+            sql = "INSERT INTO mentee (firstName, lastName, email, password) VALUES (%s, %s, %s, %s)"
+            val = (firstName, lastName, email, hashed_password)
+        elif selected_option == 'mentor':
+            sql = "INSERT INTO mentor (firstName, lastName, email, password) VALUES (%s, %s, %s, %s)"
+            val = (firstName, lastName, email, hashed_password)
+
         mycursor.execute(sql, val)
         mydb.commit()
-        mycursor.close()   
-    elif selected_option == 'mentor':
-        sql = "INSERT INTO mentor (firstName, lastName, email, password) VALUES (%s, %s, %s, %s)"
-        val = (firstName, lastName, email, hashed_password )
-        mycursor.execute(sql, val)
-        mydb.commit()
-        mycursor.close()
 
     return redirect(url_for('index'))
 
 # Route for log in form handling
 @app.route("/log_in", methods=["POST", "GET"])
 def log_in():
+    if not mydb.is_connected():
+        mydb.reconnect()
+
     if request.method == "POST":
         email = request.form["email"]
         password = request.form["password"]
@@ -70,20 +69,21 @@ def log_in():
 
         # Use a parameterized query to avoid SQL injection
         sql = "SELECT id, email FROM mentor WHERE email=%s AND password=%s"
-        mycursor.execute(sql, (email, hashed_password))
 
-        result = mycursor.fetchone()
+        with mydb.cursor() as mycursor:
+            mycursor.execute(sql, (email, hashed_password))
+            result = mycursor.fetchone()
 
-        if result:
-            # Store the email in the session
-            user_id, user_email = result
-            session["email"] = email
-            return redirect(url_for("dashboard"))  # Redirect to dashboard
-        elif not result:
-            flash('Invalid Login Credentials. Try Again.')  # Redirect back to login if login fails
-            return (redirect(url_for("index")))
+            if result:
+                # Store the email in the session
+                user_id, user_email = result
+                session["email"] = email
+                return redirect(url_for("dashboard"))  # Redirect to dashboard
+            else:
+                flash('Invalid Login Credentials. Try Again.')
+                return redirect(url_for("index"))
+
     return render_template("index.html")
-    
 
 # Route for the dashboard page (only accessible after login)
 @app.route("/dashboard")
