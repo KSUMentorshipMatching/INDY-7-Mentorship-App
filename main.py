@@ -2,14 +2,29 @@ import mysql.connector
 import hashlib
 from flask import Flask, request, render_template, redirect, url_for, session, flash
 from flask_session import Session
+import os
+
+
+def loadDbInfo(file_path):
+    dbInfo = []
+    with open(file_path, 'r') as file:
+        for line in file:
+            dbInfo.append(line.strip())
+    return dbInfo
+
+base_dir = os.path.dirname(os.path.abspath(__file__))
+db_info_file = os.path.join(base_dir, 'dbInfo.txt')
 
 # Connect to MySQL database
+
+dbInfo = loadDbInfo(db_info_file)
+
 mydb = mysql.connector.connect(
-    host="KSUMentorshipApp.mysql.pythonanywhere-services.com",
-    user="KSUMentorshipApp",
-    password="Cdaywinners2024",
-    port=3306,
-    database="KSUMentorshipApp$MentorshipMatching"
+    host=dbInfo[0],     # First line in the file
+    user=dbInfo[1],     # Second line
+    password=dbInfo[2], # Third line
+    port=int(dbInfo[3]),# Fourth line (port must be an integer)
+    database=dbInfo[4]  # Fifth line
 )
 
 app = Flask(__name__)
