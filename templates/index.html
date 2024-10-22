@@ -15,8 +15,8 @@
   <body>
 
     <video autoplay muted loop id="myVideo">
-      <source src="../static/Images/ksu.mp4" type="video/mp4">
-     </video>
+      <source src="{{ url_for('static', filename='Images/ksu.mp4') }}" type="video/mp4">
+    </video>
 
     <main>
       <section class="grid">
