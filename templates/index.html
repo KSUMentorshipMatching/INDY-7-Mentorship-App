@@ -14,13 +14,16 @@
 
   <body>
 
-
+    <video autoplay muted loop id="myVideo">
+      <source src="../static/Images/ksu.mp4" type="video/mp4">
+     </video>
 
     <main>
       <section class="grid">
         <div class="mainFlexBox">
           <div class="imageDiv">
-            <img class="happy" src="../static/Images/mentoring.jpg" alt="placeholder" />
+             <img class="happy" src="../static/Images/mentoring.jpg" alt="placeholder" />
+
           </div>
           
 
@@ -35,7 +38,7 @@
                     <p class="invalid-text">{{ message }}</p>
                   {% endfor %}
               {% endif %}
-            {% endwith %}
+              {% endwith %}
               <input type="submit" value="login" class="loginButton">
             </form>
               <a class = "forgot-text" href="/forgot-create-page">Forgot Username or Password? / Create Account</a>
