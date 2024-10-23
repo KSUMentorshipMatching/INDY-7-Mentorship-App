@@ -58,7 +58,7 @@ body {
 }
 
 /* Optional image styles if you re-add the image */
-.icon {
+.logo {
   width: 250px;
   height: 250px;
   margin: 0px 30px 0px 30px;
@@ -95,20 +95,37 @@ body {
   font-weight: 400;
 }
 
+.input-container {
+  width: 312px;
+  height: 45px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
 /* Input fields in the login form */
 .input {
   border-radius: 5px;
   border: none;
   outline: none;
   font-size: 17px;
-  color: #666;
+  color: rgb(102, 102, 102);
   background: #e6e6e6;
   display: block;
   width: 290px;
-  height: 45px;
-  padding-left: 20px;
+  height: 100%;
+  padding-left: 50px;
+  padding-top:0px;
   line-height: 1.5;
-  margin-top: 15px;
+}
+
+.icon {
+  position: absolute;
+  height: 23px;
+  color: #666;
+  margin-left: 13px;
+  margin-top: -1px;
 }
 
 /* Button for logging in */
@@ -122,7 +139,7 @@ body {
   color: white;
   font-weight: bold;
   font-size: 15px;
-  margin-top: 30px;
+  margin-top: 15px;
   cursor: pointer;
 }
 
