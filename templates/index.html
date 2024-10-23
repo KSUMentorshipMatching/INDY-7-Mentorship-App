@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
   <head>
     <title>Launch Page</title>
     <link rel="stylesheet" href="../static/Styles/index.css" />
@@ -13,35 +13,54 @@
   </head>
 
   <body>
-
     <video autoplay muted loop id="myVideo">
-      <source src="{{ url_for('static', filename='Images/ksu.mp4') }}" type="video/mp4">
+      <source
+        src="{{ url_for('static', filename='Images/ksu.mp4') }}"
+        type="video/mp4"
+      />
     </video>
 
     <main>
       <section class="grid">
         <div class="mainFlexBox">
           <div class="imageDiv">
-             <img class="happy" src="../static/Images/mentoring.jpg" alt="placeholder" />
-
+            <img
+              class="icon"
+              src="../static/Images/mentoring.jpg"
+              alt="placeholder"
+            />
           </div>
-          
 
-          <div class="login-flex">
-            <div class="title">Member Login</div>
-            <form action="/log_in" method="POST">
-              <input type="email" id="email" name="email" class="input" placeholder="Email">
-              <input type="password" id="password" name="password" class="input" placeholder="Password">
-              {% with messages = get_flashed_messages() %}
-              {% if messages %}
-                  {% for message in messages %}
-                    <p class="invalid-text">{{ message }}</p>
-                  {% endfor %}
-              {% endif %}
-              {% endwith %}
-              <input type="submit" value="login" class="loginButton">
-            </form>
-              <a class = "forgot-text" href="/forgot-create-page">Forgot Username or Password? / Create Account</a>
+          <div class="login-flex-container">
+            <div class="login-flex">
+              <div class="title">Member Login</div>
+
+              <form action="/log_in" method="POST">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="input"
+                  placeholder="Email"
+                />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="input"
+                  placeholder="Password"
+                />
+                {% with messages = get_flashed_messages() %} {% if messages %}
+                {% for message in messages %}
+                <p class="invalid-text">{{ message }}</p>
+                {% endfor %} {% endif %} {% endwith %}
+                <input type="submit" value="login" class="loginButton" />
+              </form>
+
+              <a class="forgot-text" href="/forgot-create-page"
+                >Forgot Username or Password? / Create Account</a
+              >
+            </div>
           </div>
         </div>
       </section>
