@@ -21,10 +21,10 @@ dbInfo = loadDbInfo(db_info_file)
 
 mydb = mysql.connector.connect(
     host=dbInfo[0],     # First line in the file
-    user=dbInfo[1],     # Second line
-    password=dbInfo[2], # Third line
-    port=int(dbInfo[3]),# Fourth line (port must be an integer)
-    database=dbInfo[4]  # Fifth line
+    user=dbInfo[1],     
+    password=dbInfo[2], 
+    port=int(dbInfo[3]),
+    database=dbInfo[4]  # Last line
 )
 
 app = Flask(__name__)
