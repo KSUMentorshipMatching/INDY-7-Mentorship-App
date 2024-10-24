@@ -15,64 +15,72 @@
 
   <body>
     <video autoplay muted loop playsinline preload="auto" id="myVideo">
-      <source src="{{ url_for('static', filename='Images/ksu.mp4') }}" type="video/mp4" />
+      <source
+        src="{{ url_for('static', filename='Images/ksu.mp4') }}"
+        type="video/mp4"
+      />
     </video>
 
-    <main>
-      <section class="grid">
-        <div class="mainFlexBox">
-          <div class="imageDiv">
-            <img
-              class="logo"
-              src="../static/Images/mentoring.jpg"
-              alt="placeholder"
-            />
-          </div>
+    <div class="mainFlexBox">
+      <div class="imageDiv">
+        <img
+          class="logo"
+          src="../static/Images/mentoring.jpg"
+          alt="placeholder"
+        />
+      </div>
 
-          <div class="login-flex-container">
-            <div class="login-flex">
-              <div class="title">Member Login</div>
+      <div class="login-flex-container">
+        <div class="login-flex">
+          <div class="title">Member Login</div>
 
-              <form action="/log_in" method="POST">
+          <form action="/log_in" method="POST">
+            <div class="input-container">
+              <box-icon
+                class="icon"
+                name="envelope"
+                flip="horizontal"
+                color="#909090"
+              ></box-icon>
 
-                <div class = "input-container">
-                  <box-icon class = "icon" name='envelope' flip='horizontal' color='#909090' ></box-icon>
-              
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    class="input"
-                    placeholder="Email"
-                  />
-                </div>
-                
-                <div class = "input-container">
-                  <box-icon class = "icon" name='lock-alt' flip='horizontal' color='#909090' ></box-icon>
-                  
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    class="input"
-                    placeholder="Password"
-                  />
-                </div>
-
-                {% with messages = get_flashed_messages() %} {% if messages %}
-                {% for message in messages %}
-                <p class="invalid-text">{{ message }}</p>
-                {% endfor %} {% endif %} {% endwith %}
-                <input type="submit" value="login" class="loginButton" />
-              </form>
-
-              <a class="forgot-text" href="/forgot-create-page"
-                >Forgot Username or Password? / Create Account</a
-              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="input"
+                placeholder="Email"
+              />
             </div>
-          </div>
+
+            <div class="input-container">
+              <box-icon
+                class="icon"
+                name="lock-alt"
+                flip="horizontal"
+                color="#909090"
+              ></box-icon>
+
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="input"
+                placeholder="Password"
+              />
+            </div>
+
+            {% with messages = get_flashed_messages() %} {% if messages %} {%
+            for message in messages %}
+            <p class="invalid-text">{{ message }}</p>
+            {% endfor %} {% endif %} {% endwith %}
+            <input type="submit" value="login" class="loginButton" />
+          </form>
+
+          <a class="forgot-text" href="/forgot-create-page"
+            >Forgot Username or Password? / Create Account</a
+          >
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
   </body>
 </html>
