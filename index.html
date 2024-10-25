@@ -39,10 +39,16 @@
           <div class="login-flex-container">
             <div class="login-flex">
               <div class="title">Member Login</div>
+
               <form action="/log_in" method="POST">
-                <div class = "input-container">
-                  <box-icon class = "icon" name='envelope' flip='horizontal' color='#909090' ></box-icon>
-              
+                <div class="input-container">
+                  <box-icon
+                    class="icon"
+                    name="envelope"
+                    flip="horizontal"
+                    color="#909090"
+                  ></box-icon>
+
                   <input
                     type="email"
                     id="email"
@@ -51,10 +57,15 @@
                     placeholder="Email"
                   />
                 </div>
-                
-                <div class = "input-container">
-                  <box-icon class = "icon" name='lock-alt' flip='horizontal' color='#909090' ></box-icon>
-                  
+
+                <div class="input-container">
+                  <box-icon
+                    class="icon"
+                    name="lock-alt"
+                    flip="horizontal"
+                    color="#909090"
+                  ></box-icon>
+
                   <input
                     type="password"
                     id="password"
@@ -63,9 +74,8 @@
                     placeholder="Password"
                   />
                 </div>
-                  
+
                 <input type="submit" value="login" class="loginButton" />
-                
               </form>
 
               <a class="forgot-text" href="forgot-create-page.html"

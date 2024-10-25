@@ -14,8 +14,11 @@
   </head>
 
   <body>
-    <video autoplay muted loop playsinline preload="auto" id="myVideo">
-      <source src="{{ url_for('static', filename='Images/ksu.mp4') }}" type="video/mp4" />
+    <video autoplay muted loop id="myVideo">
+      <source
+        src="{{ url_for('static', filename='Images/ksu.mp4') }}"
+        type="video/mp4"
+      />
     </video>
 
     <main>
@@ -34,10 +37,14 @@
               <div class="title">Member Login</div>
 
               <form action="/log_in" method="POST">
+                <div class="input-container">
+                  <box-icon
+                    class="icon"
+                    name="envelope"
+                    flip="horizontal"
+                    color="#909090"
+                  ></box-icon>
 
-                <div class = "input-container">
-                  <box-icon class = "icon" name='envelope' flip='horizontal' color='#909090' ></box-icon>
-              
                   <input
                     type="email"
                     id="email"
@@ -46,10 +53,15 @@
                     placeholder="Email"
                   />
                 </div>
-                
-                <div class = "input-container">
-                  <box-icon class = "icon" name='lock-alt' flip='horizontal' color='#909090' ></box-icon>
-                  
+
+                <div class="input-container">
+                  <box-icon
+                    class="icon"
+                    name="lock-alt"
+                    flip="horizontal"
+                    color="#909090"
+                  ></box-icon>
+
                   <input
                     type="password"
                     id="password"
