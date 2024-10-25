@@ -23,6 +23,9 @@ body {
   background-attachment: fixed;
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Flex container for centering content */
@@ -41,8 +44,6 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 600px;
-  width: px;
-  margin-top: 100px;
   border-radius: 10px; 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
 }
@@ -119,6 +120,14 @@ body {
   padding-left: 50px;
   padding-top:0px;
   line-height: 1.5;
+  transition: outline-color 0.5s ease-out;
+}
+
+.input:focus {
+  outline: solid;
+  outline-width: 2px;
+  outline-color: rgb(140, 140, 140);
+  transition: outline-color 0.5s ease-out;
 }
 
 .icon {
@@ -177,4 +186,40 @@ form {
   align-items: center;
   justify-items: center;
   width: 312px;
+}
+
+@media (min-width: 1800px) {
+  .imageDiv {
+    width: 500px;
+  }
+
+  .mainFlexBox {
+    height: 1000px;
+  }
+
+  .login-flex-container {
+    width: 1000px;
+  }
+
+  .login-flex {
+    padding: 150px;
+  }
+}
+
+@media (max-width: 750px){
+  .imageDiv {
+    width: 250px;
+  }
+
+  .mainFlexBox {
+    height: 550px;
+  }
+
+  .login-flex-container {
+    width: 550px;
+  }
+
+  .login-flex {
+    padding: -100px;
+  }
 }
