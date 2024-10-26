@@ -1,0 +1,243 @@
+html {
+  font-family: "Roboto", Arial;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.input-container {
+  width: 100%;
+  height: 45px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  position: relative;
+}
+
+.create-text {
+  font-size: 30px;
+  color: rgb(55, 55, 55);
+}
+
+.input {
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  color: rgb(102, 102, 102);
+  background: #e6e6e6;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-left: 50px;
+  padding-top: 0px;
+  line-height: 1.5;
+  transition: outline-color 0.5s ease-out;
+}
+
+.input:focus {
+  outline: solid;
+  outline-width: 2px;
+  outline-color: rgb(140, 140, 140);
+  transition: outline-color 0.5s ease-out;
+}
+
+.icon {
+  position: absolute;
+  height: 23px;
+  color: #666;
+  margin-left: 13px;
+  margin-top: -1px;
+}
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 400px;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.information-text {
+  width: 100%;
+  margin-bottom: 45px;
+  font-size: 16.5px;
+  font-weight: 500;
+  color: rgb(55, 55, 55);
+}
+
+.signup-button {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  background-color: rgb(220, 180, 0);
+  border: none;
+  transition: background-color 0.1s;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.signup-button:hover {
+  background-color: rgb(240, 200, 0);
+  cursor: pointer;
+}
+
+.back-to-login-text {
+  margin-top: 70px;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(55, 55, 55);
+  text-decoration: none;
+  transition: background-color 0.1s;
+}
+
+.back-to-login-text:hover {
+  color: rgb(80, 80, 80);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  margin: 0;
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
+}
+
+.image-container {
+  height: 230px;
+}
+
+body {
+  margin: auto;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: auto;
+  background: linear-gradient(
+    315deg,
+    rgb(60, 42, 42) 3%,
+    rgb(114, 169, 173) 38%,
+    rgb(97, 142, 102) 68%,
+    rgb(120, 120, 120) 98%
+  );
+  animation: gradient 30s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.wave {
+  background: rgb(255 255 255 / 25%);
+  border-radius: 1000% 1000% 0 0;
+  position: fixed;
+  width: 200%;
+  height: 12em;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+  bottom: -1.25em;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+  bottom: -2.5em;
+  animation: wave 20s -1s reverse infinite;
+  opacity: 0.9;
+}
+
+@keyframes wave {
+  2% {
+    transform: translateX(1);
+  }
+
+  25% {
+    transform: translateX(-25%);
+  }
+
+  50% {
+    transform: translateX(-50%);
+  }
+
+  75% {
+    transform: translateX(-25%);
+  }
+
+  100% {
+    transform: translateX(1);
+  }
+}
+
+.password-details {
+  color: rgb(55, 55, 55);
+  font-weight: 500;
+}
+
+.radio-group {
+  display: flex; /* Aligns radio buttons horizontally */
+  gap: 30px; /* Space between radio buttons */
+  margin: 0;
+}
+
+.radio-label {
+  display: flex;
+  align-items: end; /* Center-aligns items vertically */
+  font-size: 17px; /* Increases font size */
+  color: rgb(55, 55, 55); /* Text color */
+  cursor: pointer; /* Pointer on hover */
+}
+
+.radio-label input {
+  appearance: none; /* Remove default radio button appearance */
+  width: 20px; /* Size of the radio button */
+  height: 20px; /* Size of the radio button */
+  margin-right: 10px; /* Space between radio button and text */
+  border: 2px solid rgb(140, 140, 140); /* Border styling */
+  border-radius: 50%; /* Make it round */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+  outline: none; /* Remove default outline */
+}
+
+.radio-label input:checked {
+  background-color: rgb(220, 180, 0); /* Background color when checked */
+  border-color: rgb(170, 139, 0); /* Change border color when checked */
+}
+
+/* Optional: Add a hover effect for better interactivity */
+.radio-label:hover input {
+  border-color: rgb(180, 140, 0); /* Change border color on hover */
+}

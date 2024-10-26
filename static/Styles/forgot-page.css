@@ -1,43 +1,24 @@
 html {
-  font-family: "Roboto", sans-serif;
-  height: 100vh;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
+  font-family: "Roboto", Arial;
   height: 100%;
-  width: 100%;
+  margin: 0;
 }
 
-.page-container {
+body {
   display: flex;
-  flex-direction: row;
-}
-
-.forgot-container {
-  display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100%;
+  margin: 0;
+}
+
+.input-container {
   width: 100%;
-  margin-right: 30px;
-}
-
-.main-text {
-  font-weight: 700px;
-  font-size: 45px;
-  color: rgb(50, 50, 50);
-  text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.3);
-  letter-spacing: 1.3px;
-  margin-bottom: 25px;
-}
-
-.information-text {
-  width: 369px;
-  margin-bottom: 25px;
-  font-size: 16.5px;
-  font-weight: bold;
+  height: 45px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
 }
 
 .input {
@@ -45,37 +26,60 @@ html {
   border: none;
   outline: none;
   font-size: 17px;
-  color: rgb(50, 50, 50);
-  background: rgb(250, 250, 250);
+  color: rgb(102, 102, 102);
+  background: #e6e6e6;
   display: block;
-  width: 350px;
-  height: 45px;
-  padding-left: 20px;
-  margin-bottom: 20px;
+  width: 100%;
+  height: 100%;
+  padding-left: 50px;
+  padding-top:0px;
   line-height: 1.5;
-  box-shadow: 1px 1px 3px rgba(50, 50, 50, 0.2);
-  cursor: text;
+  transition: outline-color 0.5s ease-out;
 }
 
-.input-email {
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  font-size: 17px;
-  color: rgb(50, 50, 50);
-  background: rgb(250, 250, 250);
-  display: block;
-  width: 350px;
-  height: 45px;
-  padding-left: 20px;
-  margin-bottom: 20px;
-  line-height: 1.5;
-  box-shadow: 1px 1px 3px rgba(50, 50, 50, 0.2);
-  cursor: text;
+.input:focus {
+  outline: solid;
+  outline-width: 2px;
+  outline-color: rgb(140, 140, 140);
+  transition: outline-color 0.5s ease-out;
+}
+
+.icon {
+  position: absolute;
+  height: 23px;
+  color: #666;
+  margin-left: 13px;
+  margin-top: -1px;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+.forgot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 400px;
+  overflow: auto;
+}
+
+.information-text {
+  width: 100%;
+  margin-bottom: 45px;
+  font-size: 16.5px;
+  font-weight: 500;
+  color:rgb(55, 55, 55);
 }
 
 .request-button {
-  width: 372px;
+  width: 100%;
   height: 50px;
   border-radius: 5px;
   background-color: rgb(220, 180, 0);
@@ -84,7 +88,6 @@ html {
   color: white;
   font-weight: bold;
   font-size: 15px;
-  margin-top: 30px;
 }
 
 .request-button:hover {
@@ -93,10 +96,10 @@ html {
 }
 
 .back-to-login-text {
-  margin-top: 15px;
+  margin-top: 70px;
   font-size: 15px;
-  font-weight: bold;
-  color:rgb(50, 50, 50);
+  font-weight: 600;
+  color:rgb(55, 55, 55);
   text-decoration: none;
   transition: background-color 0.1s;
 }
@@ -114,145 +117,81 @@ form {
   margin: 0;
 }
 
- /* -------------------------------- 
-
-File#: _1_background-decoration
-Title: Background Decoration
-Descr: A collection of background effects
-Usage: codyhouse.co/license
-
--------------------------------- */
-
-/* reset */
-*, *::after, *::before {
-  box-sizing: border-box;
+.logo {
+  width: 200px;
+  height: 200px;
 }
 
-* {
-  font: inherit;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.image-container {
+  height: 260px;
 }
 
 body {
-  background-color: hsl(0, 0%, 100%);
-  font-family: system-ui, sans-serif;
-  color: hsl(230, 7%, 23%);
-  font-size: 1.125rem; /* 18px */
-  line-height: 1.4;
-}
-
-h1, h2, h3, h4 {
-  line-height: 1.2;
-  color: hsl(230, 13%, 9%);
-  font-weight: 700;
-}
-
-h1 {
-  font-size: 2.5rem; /* 40px */
-}
-
-h2 {
-  font-size: 2.125rem; /* 34px */
-}
-
-h3 {
-  font-size: 1.75rem; /* 28px */
-}
-
-h4 {
-  font-size: 1.375rem; /* 22px */
-}
-
-ol, ul, menu {
-  list-style: none;
-}
-
-button, input, textarea, select {
-  background-color: transparent;
-  border-radius: 0;
-  color: inherit;
-  line-height: inherit;
-  -webkit-appearance: none;
-          appearance: none;
-}
-
-textarea {
-  resize: vertical;
+  margin: auto;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: auto;
-  vertical-align: top;
+  background: linear-gradient(315deg, rgb(60, 42, 42) 3%, rgb(114, 169, 173) 38%, rgb(97, 142, 102) 68%, rgb(120, 120, 120) 98%);
+  animation: gradient 30s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
 }
 
-a {
-  color: hsl(250, 84%, 54%);
+@keyframes gradient {
+  0% {
+      background-position: 0% 0%;
+  }
+  50% {
+      background-position: 100% 100%;
+  }
+  100% {
+      background-position: 0% 0%;
+  }
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-img, video, svg {
-  display: block;
-  max-width: 100%;
-}
-
-/* -------------------------------- 
-
-Component 
-
--------------------------------- */
-
-.bg-decoration {
-  --bg-decoration-color-1: hsl(240, 4%, 65%);
-  --bg-decoration-color-2: hsla(230, 13%, 9%, 0.4);
-  --bg-decoration-color-3: hsl(250, 84%, 54%);
-  --bg-decoration-color-4: hsl(342, 89%, 48%);
-
-  position: absolute;
-  top: 0;
+.wave {
+  background: rgb(255 255 255 / 25%);
+  border-radius: 1000% 1000% 0 0;
+  position: fixed;
+  width: 200%;
+  height: 12em;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+  bottom: 0;
   left: 0;
-  pointer-events: none;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  z-index: -1;
 }
 
-.bg-decoration__svg {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 134%;
-  min-width: 1280px;
-  max-width: 1920px;
-  height: auto;
+.wave:nth-of-type(2) {
+  bottom: -1.25em;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
 }
 
-.bg-decoration__blending-element {
-  mix-blend-mode: overlay;
+.wave:nth-of-type(3) {
+  bottom: -2.5em;
+  animation: wave 20s -1s reverse infinite;
+  opacity: 0.9;
 }
 
-/* -------------------------------- 
+@keyframes wave {
+  2% {
+      transform: translateX(1);
+  }
 
-Utilities 
+  25% {
+      transform: translateX(-25%);
+  }
 
--------------------------------- */
+  50% {
+      transform: translateX(-50%);
+  }
 
-.cd-position-relative {
-  position: relative;
-}
+  75% {
+      transform: translateX(-25%);
+  }
 
-.cd-z-index-1 {
-  z-index: 1;
-}
-
-.cd-z-index-2 {
-  z-index: 2;
+  100% {
+      transform: translateX(1);
+  }
 }

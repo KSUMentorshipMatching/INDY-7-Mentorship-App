@@ -188,6 +188,14 @@ form {
   width: 312px;
 }
 
+.account-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 312px;
+  gap: 15px;
+}
+
 @media (min-width: 1800px) {
   .imageDiv {
     width: 500px;
@@ -202,7 +210,7 @@ form {
   }
 
   .login-flex {
-    padding: 150px;
+    padding: 100px;
   }
 }
 

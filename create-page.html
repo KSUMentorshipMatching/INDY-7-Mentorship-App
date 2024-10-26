@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Create Account</title>
+    <link rel="stylesheet" href="../static/Styles/create-page.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="../static/Script/functions.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  </head>
+
+  <body>
+    <div class="gradient"></div>
+
+    <div class="signup-container">
+      <div class="image-container">
+        <img class="logo" src="static/images/mentoring.jpg" />
+      </div>
+
+      <div>
+        <p class="create-text">Create your account</p>
+      </div>
+
+      <form>
+        <div class="input-container">
+          <box-icon class="icon" color="#909090" name="user"></box-icon>
+          <input class="input input-name" placeholder="First Name" />
+        </div>
+
+        <div class="input-container">
+          <box-icon class="icon" color="#909090" name="user"></box-icon>
+          <input class="input input-name" placeholder="Last Name" />
+        </div>
+
+        <div class="input-container">
+          <box-icon
+            class="icon"
+            name="envelope"
+            flip="horizontal"
+            color="#909090"
+          ></box-icon>
+
+          <input
+            class="input input-email"
+            id="signup-email"
+            placeholder="Email"
+          />
+        </div>
+
+        <div class="input-container">
+          <box-icon
+            class="icon"
+            name="envelope"
+            flip="horizontal"
+            color="#909090"
+          ></box-icon>
+
+          <input class="input" placeholder="Confirm Email" />
+        </div>
+
+        <div class="input-container">
+          <box-icon
+            class="icon"
+            name="lock-alt"
+            flip="horizontal"
+            color="#909090"
+          ></box-icon>
+
+          <input type="password" class="input" placeholder="Password" />
+        </div>
+
+        <div class="input-container">
+          <box-icon
+            class="icon"
+            name="lock-alt"
+            flip="horizontal"
+            color="#909090"
+          ></box-icon>
+
+          <input type="password" class="input" placeholder="Confirm Password" />
+        </div>
+
+        <div class = "input-container radio-group">
+          <label class = "radio-label">
+            <input type="radio" name="role" value="mentee" required />
+            Mentee
+          </label>
+          <label class = "radio-label">
+            <input type="radio" name="role" value="mentor" />
+            Mentor
+          </label>
+        </div>
+
+        <p class = "password-details">Use at least 8 characters, including at least one special character and one upper case letter.</p>
+
+        <button class="signup-button">Sign Up</button>
+      </form>
+      <a class="back-to-login-text" href="index.html">Back To Login</a>
+    </div>
+  </body>
+</html>
