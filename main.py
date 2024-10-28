@@ -126,7 +126,10 @@ def login_page():
 #Route for profile page
 @app.route("/profile-page")
 def profile_page():
-    return render_template("profile.html")
+    if "email" in session and session["email"]:  # Check if the user is logged in
+        return render_template("profile.html", email=session["email"])
+    else:
+        return redirect(url_for("login_page"))  # Redirect to login if no session is found
 
 # Route to log out the user
 @app.route("/log_out")
