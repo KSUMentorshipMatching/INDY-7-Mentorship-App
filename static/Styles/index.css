@@ -237,9 +237,3 @@ form {
     padding-bottom: 100px;
   }
 }
-
-@media (max-height: 768px) {
-  body {
-    padding-bottom: 100px;
-  }
-}
