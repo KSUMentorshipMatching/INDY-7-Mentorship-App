@@ -12,75 +12,278 @@
       rel="stylesheet"
     />
     <script type="module" src="static/Script/profile.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   </head>
 
   <body>
-    <div class = "banner">
+    <div class="lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>    
+
+    <div class="banner">
       <div>
-        <p class = "banner-text"> Home / User </p>
+        <p class="banner-text"><a class = "link-text" href = "dashboard.html">Home</a> / User</p>
       </div>
     </div>
 
-    <div class = "center-flex">
-      <div class = "left-flex">
-        <div class = "info-container user-bio">
+    <div class="center-flex">
+      <div class="left-flex">
+        <div class="info-container user-bio">
+          <div class="user-image-div">
+            <img class = "user-image" src="static/Images/mentee1.jpg" alt="User" />
+          </div>
 
-        </div>
+          <div class = "user-details">
+            <p class = "name">Dimple</p>
+            <p class = "location">Full Stack Developer</p>
+          </div>
 
-        <div class = "info-container user-links">
+          <div class = "edit-bio-div">
+            <input class = "bio-input" placeholder = "Edit Bio"/>
 
+          </div>
         </div>
       </div>
 
-      <div class = "right-flex">
-        <div class = " info-container user-info">
-          <div class = "input-div">
-            <p class = "info-paragraph">First Name</p>
-            <input>
+      <div class="right-flex">
+        <div class="info-container user-info">
+          <div class="input-div">
+            <p class="info-paragraph">First Name</p>
+            <input placeholder = "Dimple"/>
           </div>
 
-          <div class = input-div>
-            <p class = "info-paragraph">Last Name</p>
-            <input>
+          <div class="input-div">
+            <p class="info-paragraph">Last Name</p>
+            <input />
           </div>
 
-          <div class = input-div>
-            <p class = "info-paragraph">Email</p>
-            <input>
+          <div class="input-div">
+            <p class="info-paragraph">Email</p>
+            <input placeholder = "dimple12@gmail.com"/>
           </div>
 
-          <div class = input-div>
-            <p class = "info-paragraph">Password</p>
-            <input>
+          <div class="input-div">
+            <p class="info-paragraph">Password</p>
+            <input placeholder = ";alskdfkl;asdf">
           </div>
 
-          <div class = input-div>
-            <p class = "info-paragraph">Mobile</p>
-            <input>
+          <div class="input-div">
+            <p class="info-paragraph">Mobile</p>
+            <input placeholder = "123-123-1234"/>
           </div>
 
-          <div class = input-div>
-            <p class = "info-paragraph">Position</p>
-            <input>
+          <div class="input-div">
+            <p class="info-paragraph">Position</p>
+            <input placeholder = "Mentee" />
           </div>
 
-          <div class = edit-button-div>
-            <button class = "edit-button">Edit</button>
+          <div class="edit-button-div">
+            <button class="save-button">Save Changes</button>
           </div>
         </div>
-          <div class = preferences-flex>
 
-            <div class = " info-container preferences">
+        <div class="preferences-flex">
+          <div class="info-container preferences">
+            <div class = "preferences-div">
+              <p class = "preferences-text">Preferences</p>
+            </div>
             
-            </div>
+            <ul class="cd-demo-chip-list">
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Programming</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
 
-            <div class = "info-container preferences-2">
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Data Structures</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
 
-            </div>
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Algorithms</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Database Management</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Software Development</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Version Control</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Operating Systems</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Networking</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Cybersecurity</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Cloud Computing</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Ruby</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">JavaScript</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">C++</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Java</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Python</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Artificial Intelligence</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Mobile App Development</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Object-Oriented Programming</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+
+              <li>
+                <span class="chip">
+                  <i class="chip__label">Web Development</i>
+            
+                  <button class="chip__btn">
+                    <svg class="cd-icon" viewBox="0 0 12 12"><title>Delete attribute</title><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></g></svg>
+                  </button>
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      </div>
     </div>
-
   </body>
 </html>

@@ -11,14 +11,19 @@ body {
   min-height: 100vh;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, #f0f0f0, #bbb5b5);
-  background-attachment: fixed;
+  background-color: rgb(230, 230, 230)
 }
+
+
 
 .chat-container {
   width: 575px;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 7px rgba(0, 0, 0, 1);
   margin-top: 75px;
+  padding-top: 20px;
+  background-color: #6a6a6a;
+  background-image: radial-gradient(#bebebe 0.5px, rgb(199, 199, 199) 0.5px);
+  background-size: 10px 10px;
 }
 
 .center-container {
@@ -26,6 +31,9 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
+  flex-grow: 1;
+  margin-top: 75px;
+  gap: 40px;
 }
 
 .card-container {
@@ -35,26 +43,24 @@ body {
   text-align: center;
   justify-content: center;
   box-shadow: 0px 0px 12px rgba(80, 80, 80, 0.5);
+  background: rgb(240, 240, 240);
   gap: 45px;
-  border-radius: 4px;
-  margin-top: 60px;
-  padding: 20px;
-  background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(34, 34, 34), rgb(50, 50, 50));
-  padding: 35px;
+  border-radius: 12px;
+  padding: 60px;
 }
 
 .buttons-container {
   display: flex;
-  width: 350px;
+  width: 470px;
   justify-content: space-between;
 }
 
 .swipe-button {
   border: none;
   height: 110px;
-  width: 130px;
+  width: 110px;
   color: white;
-  border-radius: 4px;
+  border-radius: 100%;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, .7);
   font-size: 15px;
   transition: background-color 0.2s;
@@ -85,19 +91,38 @@ body {
   background-color: rgb(53, 222, 83);
 }
 
+.revert-div {
+  align-items:baseline;
+  height: 100%;
+}
+
+.center-card {
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  box-shadow: 0px 0px 12px rgba(80, 80, 80, 0.5);
+  background: rgb(240, 240, 240);
+  gap: 45px;
+  border-radius: 12px;
+  padding: 60px;
+}
+
 .card-content {
-  background-color: rgb(238, 194, 0);
+  background-color: rgb(220, 180, 0);
   border-radius: 4px;
   width: 350px;
   padding-top: 4px;
-  padding-bottom: 4px;
+  padding-bottom: 20px;
   margin-top: 35px;
   color: rgb(255, 255, 255);
   font-weight: bold;
 }
 
 .banner {
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(240, 240, 240);
   color: white;
   justify-content: space-between;
   align-items: center;
@@ -144,7 +169,69 @@ img {
 
 .user-card {
   width: 100%;
-  height: 75px;
-  border: solid;
+  height: 130px;
+  display: flex;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
 
+.user-card:hover {
+  background-color: rgb(220, 180, 0);
+}
+
+.user-card:active {
+  background-color: rgb(240, 200, 0);
+}
+
+.user-info {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  color: rgb(55, 55, 55);
+}
+
+.center-info {
+  padding-left: 20px;
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  color: rgb(55, 55, 55);
+}
+
+p {
+  margin: 0;
+}
+
+.matches-text {
+  color: rgb(55, 55, 55);
+  font-weight: 500;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+}
+
+.spacer {
+  height: 200px; /* Adjust height to control the extra space */
+  flex-shrink: 0; /* Ensures it doesn’t collapse */
+}
+
+.user-image {
+  height: 100%;
+  width: 130px;
+  object-fit: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-icon {
+  height: 80%;
+  width: 80%;
+  border-radius: 50%;
 }

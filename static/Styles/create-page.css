@@ -12,6 +12,13 @@ body {
   margin: 0;
 }
 
+@media (min-height: 768px) {
+  html {
+    padding-bottom: 100px;
+    padding-top: 100px;
+  }
+}
+
 .input-container {
   width: 100%;
   height: 45px;
@@ -96,7 +103,7 @@ body {
 }
 
 .back-to-login-text {
-  margin-top: 70px;
+  margin-top: 50px;
   font-size: 15px;
   font-weight: 600;
   color: rgb(55, 55, 55);
@@ -205,6 +212,7 @@ body {
 .password-details {
   color: rgb(55, 55, 55);
   font-weight: 500;
+  margin-bottom: 20px;
 }
 
 .radio-group {

@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <script type="module" src="static/Script/functions.js"></script>
+    <script type="module" src="static/Script/dashboard.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   </head>
 
@@ -22,42 +22,88 @@
       </div>
 
       <div class="icon-div">
-        <img class="banner-icons user-icon" src="static/images/bx-user.svg" />
+        <img
+          class="banner-icons profile-icon"
+          src="static/images/bx-user.svg"
+        />
       </div>
     </div>
 
     <div class="chat-container">
-      <div class = "chat-banner">
-        <p>Previous Matches</p>
+      <div class="chat-banner">
+        <p class="matches-text">MATCHES</p>
       </div>
 
-      <div class = "user-card">
+      <div class="user-card" data-name="Dimple" data-email="dimple12@gmail.com" data-phone="123-1234-1234" data-role="Mentor">
+        <div class="user-image">
+          <img class="user-icon" src="static/images/mentee1.jpg" />
+        </div>
 
+        <div class="user-info">
+          <p>Dimple</p>
+          <p>dimple12@gmail.com</p>
+        </div>
       </div>
 
-      <div class = "user-card">
+      <div class="user-card" data-name="Reigen Arataka" data-email="reigen32@gmail.com" data-phone="123-1234-1234" data-role="Mentor">
+        <div class="user-image">
+          <img class="user-icon" src="static/images/reigen.jpg" />
+        </div>
 
+        <div class="user-info">
+          <p>Reigen Arataka</p>
+          <p>reigen32@gmail.com</p>
+        </div>
       </div>
 
-      <div class = "user-card">
-        
+      <div class="user-card" data-name="Shigeo Kageyama" data-email="mob999@gmail.com" data-phone="123-1234-1234" data-role="Mentee">
+        <div class="user-image">
+          <img class="user-icon" src="static/images/mentor1.jpg" />
+        </div>
+
+        <div class="user-info">
+          <p>Shigeo Kageyama</p>
+          <p>mob999@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="user-card" data-name="person1" data-email="person1@gmail.com" data-phone="123-1234-1234" data-role="Mentee">
+        <div class="user-image">
+          <img class="user-icon" src="static/images/person2.jpg" />
+        </div>
+
+        <div class="user-info">
+          <p>person1</p>
+          <p>person1@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="user-card" data-name="person2" data-email="person22@gmail.com" data-phone="123-1234-1234" data-role="Mentor">
+        <div class="user-image">
+          <img class="user-icon" src="static/images/person1.jpg" />
+        </div>
+
+        <div class="user-info">
+          <p>person2</p>
+          <p>person22@gmail.com</p>
+        </div>
       </div>
     </div>
 
     <div class="center-container">
+      <button class="swipe-button left-swipe-button" id="left-swipe">
+        👈 Dislike
+      </button>
+
       <div class="card-container">
         <div id="swipe-container">
           <!-- Cards for Mentors or Mentees will be dynamically inserted here -->
         </div>
-        <div class="buttons-container" id="buttons">
-          <button class="swipe-button left-swipe-button" id="left-swipe">
-            👈 Dislike
-          </button>
-          <button class="swipe-button right-swipe-button" id="right-swipe">
-            👉 Like
-          </button>
-        </div>
       </div>
+
+      <button class="swipe-button right-swipe-button" id="right-swipe">
+        👉 Like
+      </button>
     </div>
 
     <script src="https://unpkg.com/@tarekraafat/tinderjs/dist/tinder.js"></script>

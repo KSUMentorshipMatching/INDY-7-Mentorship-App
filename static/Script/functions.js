@@ -4,8 +4,28 @@ const rightSwipeBtn = document.getElementById('right-swipe');
 
 // Example list of mentor/mentee profiles
 const profiles = [
-  { name: "Mentor 1", img: "static/images/mentor1.jpg", bio: "Experienced developer" },
-  { name: "Mentee 1", img: "static/images/mentee1.jpg", bio: "Learning Python" },
+  {
+    name: "Mentor 1",
+    img: "static/images/mentor1.jpg",
+    bio: "Experienced developer",
+  },
+  {
+    name: "Mentee 1",
+    img: "static/images/mentee1.jpg",
+    bio: "Learning Python",
+  },
+
+  {
+    name: "Mentee 1",
+    img: "static/images/person1.jpg",
+    bio: "Learning Python",
+  },
+
+  {
+    name: "Mentee 1",
+    img: "static/images/person2.jpg",
+    bio: "Learning Python",
+  },
   // Add more profiles as needed
 ];
 
