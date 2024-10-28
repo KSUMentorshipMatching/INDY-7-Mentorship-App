@@ -33,6 +33,8 @@ loadProfile(currentIndex);
 
 function loadProfile(index) {
   const profile = profiles[index];
+  swipeContainer.innerHTML = ''; // Clear any existing profile cards
+
   const card = document.createElement('div');
   card.classList.add('card');
   card.innerHTML = `
@@ -42,9 +44,9 @@ function loadProfile(index) {
       <p class="bio">${profile.bio}</p>
     </div>
   `;
-  swipeContainer.innerHTML = '';
   swipeContainer.appendChild(card);
 }
+
 
 function attachSwipeListeners() {
   // Swipe left functionality
@@ -103,50 +105,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function attachUserCardListeners() {
     const userCards = document.querySelectorAll(".user-card");
-
     userCards.forEach((card) => {
-      card.addEventListener("click", () => {
-        const name = card.getAttribute("data-name");
-        const email = card.getAttribute("data-email");
-        const phone = card.getAttribute("data-phone");
-        const role = card.getAttribute("data-role");
+        card.addEventListener("click", () => {
+            const name = card.getAttribute("data-name");
+            const email = card.getAttribute("data-email");
+            const phone = card.getAttribute("data-phone");
+            const role = card.getAttribute("data-role");
 
-        // Hide swipe container and show user card details
-        swipeContainer.style.display = 'none';
-        leftSwipeBtn.style.display = 'none';
-        rightSwipeBtn.style.display = 'none';
-        userCardContainer.style.display = 'block';
+            // Hide swipe and card containers and show user card details
+            swipeContainer.style.display = 'none';
+            leftSwipeBtn.style.display = 'none';
+            rightSwipeBtn.style.display = 'none';
+            document.querySelector('.card-container').style.display = 'none'; // Hide card container
+            userCardContainer.style.display = 'block';
 
-        // Populate the user card container with details
-        userCardContainer.innerHTML = `
-          <div class="center-card">          
-            <div class="user-image">
-              <img class="user-icon" src="${card.querySelector("img").src}">
-            </div>
-            <div class="center-info">
-              <p>${name}</p>
-              <p>${email}</p>
-              <p>${phone}</p>
-              <p>${role}</p>
-            </div>
-            <div class="revert-div">
-              <box-icon class="revertButton" id="revertButton" name='x'></box-icon>
-            </div>
-          </div>          
-        `;
+            // Populate the user card container with details
+            userCardContainer.innerHTML = `
+            <div class="center-card">
+                <div class="user-image">
+                    <img class="user-icon" src="${card.querySelector("img").src}">
+                </div>
+                <div class="center-info">
+                    <p>${name}</p>
+                    <p>${email}</p>
+                    <p>${phone}</p>
+                    <p>${role}</p>
+                </div>
+                <div class="revert-div">
+                    <box-icon class="revertButton" id="revertButton" name='x'></box-icon>
+                </div>
+            </div>`;
+
 
         // Add listener to revert button to switch back to swipe view
         document.getElementById("revertButton").addEventListener("click", () => {
           swipeContainer.style.display = 'block';
           leftSwipeBtn.style.display = 'block';
           rightSwipeBtn.style.display = 'block';
+          document.querySelector('.card-container').style.display = 'flex'; // Show card container again
           userCardContainer.style.display = 'none';
           loadProfile(currentIndex); // Reload current profile
           attachSwipeListeners(); // Reattach swipe event listeners if needed
-        });
       });
-    });
-  }
+  });
+});
+}
 
   loadProfile(currentIndex); // Load initial profile
   attachUserCardListeners(); // Attach user card click listeners
