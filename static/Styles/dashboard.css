@@ -234,6 +234,11 @@ p {
   border-radius: 50%;
 }
 
-#swipe-container > div:empty {
+.card-container:empty {
   display: none;
+  padding: 0;
+  border: none;
 }
+
+
+
