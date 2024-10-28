@@ -12,7 +12,7 @@ body {
   margin: 0;
 }
 
-@media (min-height: 768px) {
+@media (max-height: 768px) {
   html {
     padding-bottom: 100px;
     padding-top: 100px;
