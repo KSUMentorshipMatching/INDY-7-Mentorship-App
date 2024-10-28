@@ -62,15 +62,47 @@ function attachSwipeListeners() {
 
 // User card functionality
 document.addEventListener("DOMContentLoaded", () => {
-  const userCards = document.querySelectorAll(".user-card");
+  const swipeContainer = document.getElementById('swipe-container');
+  const leftSwipeBtn = document.getElementById('left-swipe');
+  const rightSwipeBtn = document.getElementById('right-swipe');
   const cardContainer = document.querySelector(".center-container");
+  const userCardContainer = document.createElement('div'); // Temporary container for user card view
 
-  // Store the original content of the card container for reverting
-  const originalContent = cardContainer.innerHTML;
+  // Add userCardContainer to the DOM but hide it initially
+  userCardContainer.classList.add("user-card-view");
+  cardContainer.appendChild(userCardContainer);
+  userCardContainer.style.display = 'none';
 
-  // Function to attach user card click event listeners
+  let currentIndex = 0;
+
+  // Load the profile for the swipe view
+  function loadProfile(index) {
+    const profile = profiles[index];
+    swipeContainer.innerHTML = `
+      <div class="card">
+        <img src="${profile.img}" alt="${profile.name}">
+        <div class="card-content">
+          <h2 class="name">${profile.name}</h2>
+          <p class="bio">${profile.bio}</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function attachSwipeListeners() {
+    leftSwipeBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % profiles.length; // Swipe left
+      loadProfile(currentIndex);
+    });
+
+    rightSwipeBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % profiles.length; // Swipe right
+      loadProfile(currentIndex);
+    });
+  }
+
   function attachUserCardListeners() {
-    const userCards = document.querySelectorAll(".user-card"); // Re-query the user cards
+    const userCards = document.querySelectorAll(".user-card");
 
     userCards.forEach((card) => {
       card.addEventListener("click", () => {
@@ -79,7 +111,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const phone = card.getAttribute("data-phone");
         const role = card.getAttribute("data-role");
 
-        cardContainer.innerHTML = `
+        // Hide swipe container and show user card details
+        swipeContainer.style.display = 'none';
+        leftSwipeBtn.style.display = 'none';
+        rightSwipeBtn.style.display = 'none';
+        userCardContainer.style.display = 'block';
+
+        // Populate the user card container with details
+        userCardContainer.innerHTML = `
           <div class="center-card">          
             <div class="user-image">
               <img class="user-icon" src="${card.querySelector("img").src}">
@@ -90,24 +129,26 @@ document.addEventListener("DOMContentLoaded", () => {
               <p>${phone}</p>
               <p>${role}</p>
             </div>
-
             <div class="revert-div">
               <box-icon class="revertButton" id="revertButton" name='x'></box-icon>
             </div>
           </div>          
         `;
 
-        // Reattach revert button click event
+        // Add listener to revert button to switch back to swipe view
         document.getElementById("revertButton").addEventListener("click", () => {
-          cardContainer.innerHTML = originalContent; // Restore original content
-          attachUserCardListeners(); // Reattach event listeners
-          loadProfile(currentIndex); // Load current profile after revert
-          attachSwipeListeners(); // Reattach swipe event listeners
+          swipeContainer.style.display = 'block';
+          leftSwipeBtn.style.display = 'block';
+          rightSwipeBtn.style.display = 'block';
+          userCardContainer.style.display = 'none';
+          loadProfile(currentIndex); // Reload current profile
+          attachSwipeListeners(); // Reattach swipe event listeners if needed
         });
       });
     });
   }
 
-  attachUserCardListeners(); // Initial attachment of event listeners
-  attachSwipeListeners(); // Attach swipe functionality initially
+  loadProfile(currentIndex); // Load initial profile
+  attachUserCardListeners(); // Attach user card click listeners
+  attachSwipeListeners(); // Attach swipe button listeners
 });

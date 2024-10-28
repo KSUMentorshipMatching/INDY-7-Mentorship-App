@@ -108,15 +108,28 @@ def dashboard():
     else:
         return redirect(url_for("login_page"))  # Redirect to login if no session is found
 
+# Route for create account page
+@app.route("/create-page")
+def create_page():
+    return render_template("create-page.html")
+
 # Route for forgot password page
-@app.route("/forgot-create-page")
-def forgot_create_page():
-    return render_template("forgot-create-page.html")
+@app.route("/forgot-page")
+def forgot_page():
+    return render_template("forgot-page.html")
 
 # Route for login page
 @app.route("/login_page")
 def login_page():
     return render_template("index.html")
+
+#Route for profile page
+@app.route("/profile-page")
+def profile_page():
+    if "email" in session and session["email"]:  # Check if the user is logged in
+        return render_template("profile.html", email=session["email"])
+    else:
+        return redirect(url_for("login_page"))  # Redirect to login if no session is found
 
 # Route to log out the user
 @app.route("/log_out")
