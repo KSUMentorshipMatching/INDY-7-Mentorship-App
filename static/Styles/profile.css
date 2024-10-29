@@ -30,7 +30,7 @@ body {
   background-size: 10px 10px;
 }
 
-@media (max-height: 1366px) {
+@media (max-height: 1200px) {
   body {
     padding-bottom: 100px;
   }
