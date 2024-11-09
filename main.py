@@ -47,6 +47,9 @@ def sign_up():
     firstName = request.form["first-name"]
     lastName = request.form["last-name"]
 
+    mydb.reset_session()
+
+
     if not mydb.is_connected():
         mydb.reconnect()
 
@@ -71,6 +74,10 @@ def sign_up():
 # Route for log in form handling
 @app.route("/log_in", methods=["POST", "GET"])
 def log_in():
+
+    mydb.reset_session()
+
+
     if not mydb.is_connected():
         mydb.reconnect()
 
