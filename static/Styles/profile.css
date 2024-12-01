@@ -154,6 +154,20 @@ a {
   overflow: auto;
 }
 
+.preferences-container {
+  height: 424px;
+}
+
+.link-text {
+  color: rgb(55, 55, 55);
+  font-weight: 400;
+}
+
+.user-text {
+  font-weight: bold;
+  color: rgb(55, 55, 55);
+}
+
 .info-container {
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
   background: rgb(240, 240, 240);
@@ -447,11 +461,14 @@ Icons
   height: 1em;
   width: 1em;
   display: inline-block;
-  color: inherit;
+  background-color: red;
+  border-radius: 40px;
   fill: currentColor;
   line-height: 1;
   flex-shrink: 0;
   max-width: initial;
+  height: 22px;
+  width: 22px;
 }
 
 .cd-icon use {

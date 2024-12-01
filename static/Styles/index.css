@@ -197,24 +197,6 @@ form {
   gap: 15px;
 }
 
-@media (min-width: 1800px) {
-  .imageDiv {
-    width: 500px;
-  }
-
-  .mainFlexBox {
-    height: 1000px;
-  }
-
-  .login-flex-container {
-    width: 1000px;
-  }
-
-  .login-flex {
-    padding: 100px;
-  }
-}
-
 @media (max-height: 750px){
   .imageDiv {
     width: 250px;

@@ -155,3 +155,27 @@ document.addEventListener("DOMContentLoaded", () => {
   attachUserCardListeners(); // Attach user card click listeners
   attachSwipeListeners(); // Attach swipe button listeners
 });
+
+document.getElementById('bell').onclick = function(event) {
+  const whiteBox = document.getElementById('white-box');
+  
+  // Get the bell's position
+  const bellRect = event.currentTarget.getBoundingClientRect();
+
+  // Set the white box position near the bell icon
+  whiteBox.style.left = `${bellRect.left}px`;
+  whiteBox.style.top = `${bellRect.bottom + window.scrollY}px`;  // Place below the bell
+
+  // Toggle display with fade-in effect
+  if (whiteBox.style.display === 'block') {
+    whiteBox.style.opacity = '0';  // Start fade-out
+    setTimeout(() => {
+      whiteBox.style.display = 'none'; // Hide after fading
+    }, 500); // Match duration with CSS transition
+  } else {
+    whiteBox.style.display = 'block'; // Show first
+    setTimeout(() => {
+      whiteBox.style.opacity = '1';   // Start fade-in
+    }, 10); // Small delay to ensure display change is registered
+  }
+};

@@ -1,77 +1,118 @@
-function createCheckboxInputs(containerId, items) {
-  const container = document.getElementById(containerId);
-  items.forEach(item => {
-      const checkboxContainer = document.createElement("div");
-      checkboxContainer.className = "form-check form-check-inline";
-      
-      const input = document.createElement("input");
-      input.type = "checkbox";
-      input.className = "form-check-input";
-      input.name = containerId; // name attribute set to containerId for grouping
-      input.value = item;
-      input.id = `${containerId}-${item.replace(/\s+/g, '-')}`;
-      
-      const label = document.createElement("label");
-      label.className = "form-check-label";
-      label.htmlFor = input.id;
-      label.innerText = item;
-      
-      checkboxContainer.appendChild(input);
-      checkboxContainer.appendChild(label);
-      container.appendChild(checkboxContainer);
-  });
+const skills = [
+  "Programming",
+  "Data Structures",
+  "Algorithms",
+  "Database Management",
+  "Software Development",
+  "Version Control",
+  "Operating Systems",
+  "Networking",
+  "Cybersecurity",
+  "Cloud Computing",
+  "Ruby",
+  "JavaScript",
+  "C++",
+  "Java",
+  "Python",
+  "Artificial Intelligence",
+  "Mobile App Development",
+  "Object-Oriented Programming",
+  "Web Development",
+];
+
+const preferences = [
+  "Experience Level",
+  "Higher Expertise",
+  "Communication Style",
+  "Frequent Availability",
+  "Flexible Scheduling",
+  "Goal Alignment",
+  "Career Growth Focus",
+  "Industry Specific Experience",
+  "Hands-On Learning",
+  "Theoretical Learning",
+  "Constructive Feedback",
+  "Positive Reinforcement",
+  "Shared Values",
+  "Cultural Alignment",
+  "Technical Skill Development",
+  "Soft Skill Growth",
+  "Short-Term Project",
+  "Long-Term Mentorship",
+];
+
+function saveButtonState(buttonId, color) {
+  localStorage.setItem(buttonId, color);
 }
 
-// Execute functions to populate HTML
-document.addEventListener("DOMContentLoaded", () => {
-  createCheckboxInputs("preferences-div", attributes);
-  createCheckboxInputs("skills-container", skills);
+function getSavedButtonState(buttonId) {
+  return localStorage.getItem(buttonId);
+}
+
+const preferencesList = document.getElementById("preferences-list");
+
+preferences.forEach((preference) => {
+  const listItem = document.createElement("li");
+  listItem.innerHTML = `
+      <li>
+          <span class="chip">
+              <span class="chip__label" id="${preference
+                .toLowerCase()
+                .replace(/\s+/g, "-")}">${preference}</span>
+              <button class="chip__btn">
+                  <svg class="cd-icon" viewBox="0 0 12 12" data-id="${preference}">
+                      <title>Delete attribute</title>
+                  </svg>
+              </button>
+          </span>
+      </li>
+    `;
+  preferencesList.appendChild(listItem);
 });
 
-const experience = document.getElementById("experience");
-const cd = document.getElementById("cd-icon");
+const skillsList = document.getElementById("skills-list");
 
-cd.onclick = function () {
-    // Check the current color and toggle
-    if (experience.style.color === 'green') {
-        experience.style.color = 'red';
+skills.forEach((skill) => {
+  const listItem = document.createElement("li");
+  listItem.innerHTML = `
+      <li>
+          <span class="chip">
+              <span class="chip__label" id="${skill
+                .toLowerCase()
+                .replace(/\s+/g, "-")}">${skill}</span>
+              <button class="chip__btn">
+                  <svg class="cd-icon" viewBox="0 0 12 12" data-id="${skill}">
+                      <title>Delete attribute</title>
+                  </svg>
+              </button>
+          </span>
+      </li>
+    `;
+  skillsList.appendChild(listItem);
+});
+
+const cdIcons = document.querySelectorAll(".cd-icon");
+
+cdIcons.forEach((cdIcon) => {
+  const buttonId = cdIcon.getAttribute("data-id");
+
+  const savedColor = getSavedButtonState(buttonId);
+  if (savedColor) {
+    cdIcon.style.backgroundColor = savedColor;
+  }
+
+  cdIcon.addEventListener("click", function () {
+    let newColor;
+    if (cdIcon.style.backgroundColor === "green") {
+      newColor = "red";
     } else {
-        experience.style.color = 'green';
+      newColor = "green";
     }
-};
 
-const expert = document.getElementById("expert");
-const cd2 = document.getElementById("cd-icon2");
+    cdIcon.style.backgroundColor = newColor;
 
-cd2.onclick = function () {
-    // Check the current color and toggle
-    if (expert.style.color === 'green') {
-        expert.style.color = 'red';
-    } else {
-        expert.style.color = 'green';
-    }
-};
+    saveButtonState(buttonId, newColor);
 
-const com = document.getElementById("com");
-const cd3 = document.getElementById("cd-icon3");
-
-cd3.onclick = function () {
-    // Check the current color and toggle
-    if (com.style.color === 'green') {
-        com.style.color = 'red';
-    } else {
-        com.style.color = 'green';
-    }
-};
-
-const program = document.getElementById("program");
-const cd4 = document.getElementById("cd-icon4");
-
-program.onclick = function () {
-    // Check the current color and toggle
-    if (program.style.color === 'green') {
-        program.style.color = 'red';
-    } else {
-        program.style.color = 'green';
-    }
-};
+    console.log(`Button with ID ${buttonId} color is now: ${newColor}`);
+  });
+});

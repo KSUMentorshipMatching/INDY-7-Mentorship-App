@@ -11,13 +11,22 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   </head>
 
   <body>
     <div class="banner">
       <div class="icon-div">
-        <img class="banner-icons menu-icon" src="static/images/bx-menu.svg" />
+        <box-icon id = "bell" class = "banner-icons menu-icon" name='bell' color='255255255' ></box-icon>
+        <div id="white-box" class="white-box">
+          <div>
+            <p class = "notifications-text">Notifications</p>
+          </div>
+          
+          <div class = "no-notifications">
+            <p class = "notifications-text">0 new notifications</p>
+          </div>
+        </div>
       </div>
 
       <div class="icon-div">
